@@ -1,2 +1,2 @@
-# TheTardigrades
-The cutest segmented micro-animals you've ever seen
+# TheWarpingTardigrades
+The cutest warping segmented micro-animals you've ever seen

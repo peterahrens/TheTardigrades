@@ -6,7 +6,7 @@
 #define init_centery 0.0
 #define init_lengthx 2.75
 #define init_lengthy 2.0
-#define init_pixelcountx 100
+#define init_pixelcountx 2000
 
 int main(int argc, char** argv) {
   double elapsed = -time();

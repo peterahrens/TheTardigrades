@@ -146,13 +146,13 @@ void dump_rgb(const char* name, const size_t width, const size_t height, const u
   fclose(file);
 }
 
-void dump_hsv(const char* name, const size_t width, const size_t height, const uint8_t *data){
+void dump_hsv(const char* name, const size_t width, const size_t height, const double *data){
   uint8_t newdata[width * height * 3];
   for(int i = 0; i < width * height; i++){
     hsv in;
-    in.h = (double)data[i * 3 + 0];
-    in.s = (double)data[i * 3 + 1];
-    in.v = (double)data[i * 3 + 2];
+    in.h = data[i * 3 + 0];
+    in.s = data[i * 3 + 1];
+    in.v = data[i * 3 + 2];
     rgb out = rgb2hsv(in);
     newdata[i * 3 + 0] = (uint8_t)rgb.r;
     newdata[i * 3 + 1] = (uint8_t)rgb.g;

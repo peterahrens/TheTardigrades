@@ -4,11 +4,11 @@
 #include <stdint.h>
 #include "image.h"
 
-#define init_centerx -0.75
+#define init_centerx 0.0
 #define init_centery 0.0
-#define init_lengthx 2.75
-#define init_lengthy 2.0
-#define init_pixelcountx 10
+#define init_lengthx 1.0
+#define init_lengthy 1.0
+#define init_pixelcountx 50
 
 
 int main(int argc, char** argv) {

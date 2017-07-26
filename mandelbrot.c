@@ -38,17 +38,17 @@ void mandelbrot(double centerx, double centery, double lengthx, double lengthy, 
       }
       if (iter < iter_max)
       {
-        printf("true %f %f\n", (x_init, y_init));
+        printf("true %f %f\n", x_init, y_init);
         hsv[i] = 0.;
         hsv[i+1] = 1.;
         hsv[i+2] = 0.;
       }
       else
       {
-        printf("false %f %f\n", (x_init,y_init));
+        printf("false %f %f\n", x_init,y_init);
         hsv[i] = 0.;
         hsv[i+1] = 0;
-        hsv[i+2] = 0;
+        hsv[i+2] = 100.;
       }
 
     }

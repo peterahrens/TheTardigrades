@@ -32,6 +32,7 @@ void dump_mandelbrot(const char *file, double centerx, double centery, double le
       double y = y_init;
       int iter = 0;
       double radius = 0;
+      double hue, distance;
       while (radius < radius_max && iter < iter_max)
       {
         double x_old = x;
@@ -43,9 +44,19 @@ void dump_mandelbrot(const char *file, double centerx, double centery, double le
       }
       if (iter < iter_max)
       {
-        hsv[i] = 0.;
-        hsv[i+1] = 0.;
-        hsv[i+2] = 0.;
+        if (distance < 0.5 * pixel_size)
+        {
+          hsv[i+2] = pow(distance / (0.5 * pixel_size), 1./3.) * 100.;
+        }
+        else
+        {
+          hsv[i+2] = 100.;
+        }
+        hsv[i+1] = 70.;
+        hue = log(iter) / log(iter_max);
+        hue = hue * 10.;
+        hue = hue - floor(hue);
+        hsv[i] = hue;
       }
       else
       {

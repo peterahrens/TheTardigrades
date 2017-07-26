@@ -147,7 +147,7 @@ void dump_rgb(const char* name, const size_t width, const size_t height, const u
 }
 
 void dump_hsv(const char* name, const size_t width, const size_t height, const double *data){
-  double newdata[width * height * 3];
+  uint8_t newdata[width * height * 3];
   for(int i = 0; i < width * height; i++){
     hsv in;
     in.h = data[i * 3 + 0];
@@ -158,5 +158,5 @@ void dump_hsv(const char* name, const size_t width, const size_t height, const d
     newdata[i * 3 + 1] = (uint8_t)out.g;
     newdata[i * 3 + 2] = (uint8_t)out.b;
   }
-  dump_hsv(name, width, height, newdata);
+  dump_rgb(name, width, height, newdata);
 }

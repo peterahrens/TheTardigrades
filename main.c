@@ -8,7 +8,7 @@
 #define init_centery 0.0
 #define init_lengthx 2.75
 #define init_lengthy 2.0
-#define init_pixelcountx 8192
+#define init_pixelcountx 10
 
 
 int main(int argc, char** argv) {
@@ -18,5 +18,5 @@ int main(int argc, char** argv) {
  
   mandelbrot(init_centerx, init_centery, init_lengthx, init_lengthy, init_pixelcountx, hsv);
 
-  dump_hsv("file", init_pixelcountx, init_pixelcounty, hsv);
+  dump_hsv("thefractalyo", init_pixelcountx, init_pixelcounty, hsv);
 }

@@ -1,6 +1,6 @@
 CC = gcc
 MPICC = mpicc
-CFLAGS = -std=c99 #-acc -ta=tesla:cc60 -Minfo=accel -fast
+CFLAGS = -std=c99 -pg #-acc -ta=tesla:cc60 -Minfo=accel -fast
 OMPFLAGS = -fopenmp
 
 all: mandelbrot.o main.o image.o run

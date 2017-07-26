@@ -14,9 +14,9 @@
 int main(int argc, char** argv) {
   double pixel_size = init_lengthx / (double)init_pixelcountx;
   int init_pixelcounty = (int)(init_lengthy / pixel_size);
-  double hsv[init_pixelcounty * pixelcountx * 3];
+  double hsv[init_pixelcounty * init_pixelcountx * 3];
  
-  mandelbrot(init_centerx, init_centery, lengthx, lengthy, init_pixelcountx, hsv);
+  mandelbrot(init_centerx, init_centery, init_lengthx, init_lengthy, init_pixelcountx, hsv);
 
   dump_hsv("file", init_pixelcountx, init_pixelcounty, hsv);
 }

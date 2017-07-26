@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <math.h>
+#include "image.h"
 
-void mandelbrot(double centerx, double centery, double lengthx, double lengthy, int pixel_countx, 
-    double* hsv)
+void dump_mandelbrot(const char *file, double centerx, double centery, double lengthx, double lengthy, int pixel_countx)
 {
   double pixel_size = lengthx / (double)pixel_countx;
   int pixel_county = (int)(lengthy / pixel_size);
+
+  double *hsv = (double*)malloc(pixel_countx * pixel_county * 3 * sizeof(double));
 
   double minx = centerx - lengthx / 2.0;
   double maxy = centery + lengthy / 2.0;
@@ -38,19 +40,19 @@ void mandelbrot(double centerx, double centery, double lengthx, double lengthy, 
       }
       if (iter < iter_max)
       {
-        printf("true %f %f\n", x_init, y_init);
         hsv[i] = 0.;
-        hsv[i+1] = 1.;
+        hsv[i+1] = 0.;
         hsv[i+2] = 0.;
       }
       else
       {
-        printf("false %f %f\n", x_init,y_init);
-        hsv[i] = 0.;
-        hsv[i+1] = 0;
+        hsv[i] = 120.;
+        hsv[i+1] = 100;
         hsv[i+2] = 100.;
       }
-
     }
   }
+
+  dump_hsv(file, pixel_countx, pixel_county, hsv);
+  free(hsv);
 }

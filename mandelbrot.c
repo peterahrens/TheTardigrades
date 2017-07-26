@@ -24,8 +24,9 @@ void mandelbrot(double centerx, double centery, double lengthx, double lengthy, 
     {
       double x_init = minx + pixelx * pixel_size;
       double y_init = maxy - pixely * pixel_size;
-      int i = (pixel_county * pixely + pixelx) * 3;
-      
+      int i = (pixel_countx * pixely + pixelx) * 3;
+      iter = 0;
+
       x = x_init;
       y = y_init;
       while (radius < radius_max && iter < iter_max)
@@ -37,14 +38,14 @@ void mandelbrot(double centerx, double centery, double lengthx, double lengthy, 
       }
       if (iter < iter_max)
       {
-//printf("true %f %f\n", (x_init, y_init));
+        printf("true %f %f\n", (x_init, y_init));
         hsv[i] = 0.;
         hsv[i+1] = 1.;
         hsv[i+2] = 0.;
       }
       else
       {
-        //printf("false %f %f\n", (x_init,y_init));
+        printf("false %f %f\n", (x_init,y_init));
         hsv[i] = 0.;
         hsv[i+1] = 0;
         hsv[i+2] = 0;

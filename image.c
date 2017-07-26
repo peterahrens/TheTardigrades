@@ -142,7 +142,6 @@ void dump_rgb(const char* name, const size_t width, const size_t height, const u
   fprintf(file, "P6\n");
   fprintf(file, "%zd, %zd\n", width, height);
   fprintf(file, "255\n");
-  fwrite(data, sizeof(uint8_t), width * height, file);
+  fwrite(data, sizeof(uint8_t), width * height * 3, file);
   fclose(file);
 }
-

@@ -9,7 +9,7 @@ void mandelbrot(double centerx, double centery, double lengthx, double lengthy, 
   int iter_max = 1000;
   int pixel_county;
   double radius = 0;
-  double x, y, minx, maxy, pixel_size, init_x, init_y
+  double x, y, minx, maxy, pixel_size, init_x, init_y;
   double radius_max = 2.0;
 
   minx = centerx - lengthx / 2.0;
@@ -17,13 +17,13 @@ void mandelbrot(double centerx, double centery, double lengthx, double lengthy, 
   pixel_size = lengthx / (double)pixel_countx;
   pixel_county = (int)(lengthy / pixel_size);
 
-  for (pixely = 0; pixely < pixel_county; pixely++)
+  for (int pixely = 0; pixely < pixel_county; pixely++)
   {
-    for (pixelx = 0; pixelx < pixel_countx; pixelx++)
+    for (int pixelx = 0; pixelx < pixel_countx; pixelx++)
     {
-      x_init = minx + pixelx * pixel_size;
-      y_init = maxy - pixely * pixel_size;
-      i = (pixel_county * pixely + pixelx) * 3;
+      double x_init = minx + pixelx * pixel_size;
+      double y_init = maxy - pixely * pixel_size;
+      int i = (pixel_county * pixely + pixelx) * 3;
       
       x = x_init;
       y = y_init;
@@ -50,6 +50,4 @@ void mandelbrot(double centerx, double centery, double lengthx, double lengthy, 
 
     }
   }
-  
-  return rgb;
 }

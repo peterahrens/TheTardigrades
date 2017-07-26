@@ -54,7 +54,7 @@ void dump_mandelbrot(const char *file, double centerx, double centery, double le
       {
         if (distance < 0.5 * pixel_size)
         {
-          hsv[i+2] = pow(distance / (0.5 * pixel_size), 1./3.);
+          hsv[i+2] = pow(distance / (0.5 * pixel_size), 1./3.) * 100;
         }
         else
         {

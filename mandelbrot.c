@@ -6,33 +6,33 @@
 void mandelbrot(double centerx, double centery, double lengthx, double lengthy, int pixel_countx, 
     double* hsv)
 {
-  int iter = 0;
-  int iter_max = 1000;
-  int pixel_county;
-  double radius = 0;
-  double x, y, minx, maxy, pixel_size, init_x, init_y;
-  double radius_max = 2.0;
+  double pixel_size = lengthx / (double)pixel_countx;
+  int pixel_county = (int)(lengthy / pixel_size);
 
-  minx = centerx - lengthx / 2.0;
-  maxy = centery + lengthy / 2.0;
-  pixel_size = lengthx / (double)pixel_countx;
-  pixel_county = (int)(lengthy / pixel_size);
+  double minx = centerx - lengthx / 2.0;
+  double maxy = centery + lengthy / 2.0;
 
   for (int pixely = 0; pixely < pixel_county; pixely++)
   {
     for (int pixelx = 0; pixelx < pixel_countx; pixelx++)
     {
-      double x_init = minx + pixelx * pixel_size;
-      double y_init = maxy - pixely * pixel_size;
+      double x_init = minx + (pixelx * pixel_size) + pixel_size * 0.5;
+      double y_init = maxy - (pixely * pixel_size) + pixel_size * 0.5;
       int i = (pixel_countx * pixely + pixelx) * 3;
-      iter = 0;
 
-      x = x_init;
-      y = y_init;
+      int iter_max = 1000;
+      double radius_max = 2.0;
+
+      double x = x_init;
+      double y = y_init;
+      int iter = 0;
+      double radius = 0;
       while (radius < radius_max && iter < iter_max)
       {
-        x = x * x - y * y + x_init;
-        y = 2.0 * x * y + y_init;
+        double x_old = x;
+        double y_old = y;
+        x = x_old * x_old - y_old * y_old + x_init;
+        y = 2.0 * x_old * y_old + y_init;
         radius = sqrt(x * x + y * y);
         iter++;
       }

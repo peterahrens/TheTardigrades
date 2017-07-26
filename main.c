@@ -6,8 +6,8 @@
 
 #define init_centerx 0.0
 #define init_centery 0.0
-#define init_lengthx 1.0
-#define init_lengthy 1.0
+#define init_lengthx 2.0
+#define init_lengthy 2.0
 #define init_pixelcountx 50
 
 

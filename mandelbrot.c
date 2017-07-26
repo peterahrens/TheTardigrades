@@ -14,6 +14,9 @@ void dump_mandelbrot(const char *file, double centerx, double centery, double le
   double minx = centerx - lengthx / 2.0;
   double maxy = centery + lengthy / 2.0;
 
+  #pragma acc data copyout(hsv[:pixel_countx * pixel_county * 3])
+  {
+  #pragma acc parallel loop collapse(2)
   for (int pixely = 0; pixely < pixel_county; pixely++)
   {
     for (int pixelx = 0; pixelx < pixel_countx; pixelx++)
@@ -51,6 +54,7 @@ void dump_mandelbrot(const char *file, double centerx, double centery, double le
         hsv[i+2] = 100.;
       }
     }
+  }
   }
 
   dump_hsv(file, pixel_countx, pixel_county, hsv);

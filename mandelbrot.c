@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <math.h>
 
 void mandelbrot(double centerx, double centery, double lengthx, double lengthy, int pixel_countx, 
     double* hsv)
@@ -31,18 +32,19 @@ void mandelbrot(double centerx, double centery, double lengthx, double lengthy, 
       {
         x = x * x - y * y + x_init;
         y = 2.0 * x * y + y_init;
+        radius = sqrt(x * x + y * y);
         iter++;
       }
       if (iter < iter_max)
       {
-        printf("true %f %f\n", (x_init, y_init));
+//printf("true %f %f\n", (x_init, y_init));
         hsv[i] = 0.;
         hsv[i+1] = 1.;
         hsv[i+2] = 0.;
       }
       else
       {
-        printf("false %f %f\n", (x_init,y_init));
+        //printf("false %f %f\n", (x_init,y_init));
         hsv[i] = 0.;
         hsv[i+1] = 0;
         hsv[i+2] = 0;

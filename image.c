@@ -28,17 +28,3 @@ void dump_rgb(const char* name, const size_t width, const size_t height, const u
   fclose(file);
 }
 
-
-int main(int argc, char** argv){
-  int radius = 16;
-  int width = radius;
-  int height = radius;
-  uint8_t data[width * height];
-  for(int i = 0; i < width; i++){
-    for(int j = 0; j < height; j++){
-      data[j * width + i] = (i * i + j * j < radius * radius) * 255;
-    }
-  }
-  dump_gs("mycoofile", width, height, data);
-  return 0;
-}
